@@ -1,7 +1,21 @@
-import type { NextPage } from "next";
+import React from 'react'
+import type { NextPage } from 'next'
+import { css } from '@emotion/react'
 
 const Home: NextPage = () => {
-    return <>TEST</>;
-};
+  return (
+    <>
+      <div css={styles.test}>Hello world!</div>
+      TEST
+    </>
+  )
+}
 
-export default Home;
+export default Home
+
+const styles = {
+  test: css`
+    height: 1000px;
+    color: red;
+  `,
+}
