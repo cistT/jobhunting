@@ -105,6 +105,14 @@
         "peerDependencies": false,
         "packageDir": "./"
       }
+    ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "explicitSpread": "ignore"
+      }
     ]
   }
 }
