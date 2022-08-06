@@ -8,10 +8,10 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import ButtonProps from "../type/index";
 
 const LogoutButton = (props: ButtonProps) => {
-  const { onClick } = props;
+  const { onClick, className = "" } = props;
 
   return (
-    <Button css={styles.button} onClick={onClick}>
+    <Button className={className} css={styles.button} onClick={onClick}>
       <div>
         <LogoutIcon />
         <div>ログアウト</div>
@@ -25,6 +25,5 @@ export default LogoutButton;
 const styles = {
   button: css`
     text-align: center;
-    color: white;
   `,
 };
