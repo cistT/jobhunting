@@ -43,10 +43,10 @@ const styles = {
   toolbar: css`
     display: grid;
     @media (max-width: 750px) {
-      grid-template-columns: 80px 1fr 80px;
+      grid-template-columns: 80px 1fr 100px;
     }
     @media (min-width: 751px) {
-      grid-template-columns: 1fr 80px;
+      grid-template-columns: 1fr 100px;
     }
   `,
 };
