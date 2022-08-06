@@ -21,7 +21,9 @@ const Header = () => {
   return (
     <AppBar>
       <Toolbar css={styles.toolbar}>
-        {width <= 750 && <MenuButton />}
+        {width <= 750 && (
+          <MenuButton onClick={() => undefined} css={styles.button} />
+        )}
 
         <Typography variant="h6" component="div">
           就活管理アプリ
