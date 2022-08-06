@@ -28,9 +28,9 @@ const Header = () => {
         </Typography>
 
         {isLogin ? (
-          <LogoutButton onClick={logout} />
+          <LogoutButton onClick={logout} css={styles.button} />
         ) : (
-          <LoginButton onClick={login} />
+          <LoginButton onClick={login} css={styles.button} />
         )}
       </Toolbar>
     </AppBar>
@@ -48,5 +48,8 @@ const styles = {
     @media (min-width: 751px) {
       grid-template-columns: 1fr 100px;
     }
+  `,
+  button: css`
+    color: white;
   `,
 };
