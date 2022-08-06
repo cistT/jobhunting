@@ -25,6 +25,5 @@ export default LoginButton;
 const styles = {
   button: css`
     text-align: center;
-    color: white;
   `,
 };
