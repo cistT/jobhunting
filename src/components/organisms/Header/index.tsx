@@ -8,8 +8,12 @@ import Typography from "@mui/material/Typography";
 
 import LoginButton from "components/atoms/Button/LoginButton";
 import LogoutButton from "components/atoms/Button/LogoutButton";
+import MenuButton from "components/atoms/Button/MenuButton";
+import useWindowSize from "hooks/useWindowSize";
 
 const Header = () => {
+  const { width } = useWindowSize();
+
   const [isLogin, setIsLogin] = React.useState(false);
   const login = () => setIsLogin(true);
   const logout = () => setIsLogin(false);
@@ -17,6 +21,8 @@ const Header = () => {
   return (
     <AppBar>
       <Toolbar css={styles.toolbar}>
+        {width <= 750 && <MenuButton />}
+
         <Typography variant="h6" component="div">
           就活管理アプリ
         </Typography>
@@ -35,7 +41,12 @@ export default Header;
 
 const styles = {
   toolbar: css`
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    @media (max-width: 750px) {
+      grid-template-columns: 80px 1fr 80px;
+    }
+    @media (min-width: 751px) {
+      grid-template-columns: 1fr 80px;
+    }
   `,
 };
