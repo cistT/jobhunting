@@ -5,4 +5,13 @@ type ButtonProps = {
   className?: string;
 };
 
-export default ButtonProps;
+type IconButtonProps = {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  text?: string;
+  icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+    muiName: string;
+  };
+  className?: string;
+};
+
+export { ButtonProps, IconButtonProps };
