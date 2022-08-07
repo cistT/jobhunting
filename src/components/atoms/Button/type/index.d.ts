@@ -7,7 +7,7 @@ type ButtonProps = {
 
 type IconButtonProps = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  text?: string;
+  label?: string;
   icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
     muiName: string;
   };
