@@ -5,16 +5,16 @@ import { css } from "@emotion/react";
 import { ComponentMeta } from "@storybook/react";
 
 import HomeButton from ".";
-import ButtonProps from "../type";
+import { IconButtonProps } from "../type";
 
 export default {
   title: "Button/HomeButton",
   component: HomeButton,
 } as ComponentMeta<typeof HomeButton>;
 
-export const Original = (props: ButtonProps) => <HomeButton {...props} />;
+export const Original = (props: IconButtonProps) => <HomeButton {...props} />;
 
-export const Header = (props: ButtonProps) => (
+export const Header = (props: IconButtonProps) => (
   <HomeButton {...props} css={styles.header} />
 );
 
