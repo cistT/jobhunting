@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { ComponentMeta } from "@storybook/react";
 
 import LogoutButton from ".";
-import ButtonProps from "../type";
+import { ButtonProps } from "../type";
 
 export default {
   title: "Button/LogoutButton",
