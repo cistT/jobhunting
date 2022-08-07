@@ -1,29 +1,13 @@
 import React from "react";
 
-import { css } from "@emotion/react";
-
-import { Button } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-import ButtonProps from "../type/index";
+import IconButton from "../IconButton";
 
-const LogoutButton = (props: ButtonProps) => {
-  const { onClick, className = "" } = props;
+import { ButtonProps } from "../type/index";
 
-  return (
-    <Button className={className} css={styles.button} onClick={onClick}>
-      <div>
-        <LogoutIcon />
-        <div>ログアウト</div>
-      </div>
-    </Button>
-  );
-};
+const LogoutButton = (props: ButtonProps) => (
+  <IconButton {...props} icon={<LogoutIcon />} label="ログアウト" />
+);
 
 export default LogoutButton;
-
-const styles = {
-  button: css`
-    text-align: center;
-  `,
-};
