@@ -1,7 +1,7 @@
 import React from "react";
 
 type ListItemProps = {
-  text: string;
+  label: string;
   onClick?: React.MouseEventHandler<HTMLLIElement>;
   className?: string;
 };

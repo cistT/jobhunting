@@ -7,11 +7,11 @@ import { ListItem, ListItemText } from "@mui/material";
 import ListItemProps from "../type";
 
 const TextListItem = (props: ListItemProps) => {
-  const { text, onClick = () => undefined, className = "" } = props;
+  const { label, onClick = () => undefined, className = "" } = props;
   return (
     <>
       <ListItem css={styles.listItem} className={className} onClick={onClick}>
-        <ListItemText primary={text} />
+        <ListItemText primary={label} />
       </ListItem>
     </>
   );

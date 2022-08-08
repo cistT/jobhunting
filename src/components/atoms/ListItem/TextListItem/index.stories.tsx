@@ -13,5 +13,5 @@ export default {
 } as ComponentMeta<typeof TextListItem>;
 
 export const Original = (props: ListItemProps) => (
-  <TextListItem {...props} text="test" />
+  <TextListItem {...props} label="test" />
 );
