@@ -23,9 +23,11 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.3",
     "babel-plugin-storybook-addon-pseudo-states-emotion": "^0.2.3",
+    "modern-css-reset": "^1.4.0",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "ress": "^5.0.2",
     "sb": "^6.5.9",
     "tsconfig-paths-webpack-plugin": "^4.0.0"
   },
