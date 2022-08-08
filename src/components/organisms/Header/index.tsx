@@ -46,9 +46,10 @@ const styles = {
   toolbar: (visible: boolean) => css`
     width: 100vw;
     display: grid;
-    grid-template-columns: ${visible ? "80px 1fr 100px" : "1fr 100px"};
+    grid-template-columns: ${visible ? "80px 1fr 150px" : "1fr 150px"};
   `,
   button: css`
     color: white;
+    margin-right: 20px;
   `,
 };
