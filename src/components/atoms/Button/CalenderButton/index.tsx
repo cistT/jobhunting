@@ -6,7 +6,7 @@ import IconButton from "../IconButton";
 
 import { ButtonProps } from "../type/index";
 
-const LoginButton = (props: ButtonProps) => (
+const CalenderButton = (props: ButtonProps) => (
   <IconButton {...props} icon={<CalendarMonthIcon />} label="予定" />
 );
-export default LoginButton;
+export default CalenderButton;

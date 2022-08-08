@@ -6,7 +6,7 @@ import IconButton from "../IconButton";
 
 import { ButtonProps } from "../type/index";
 
-const LoginButton = (props: ButtonProps) => (
+const AddButton = (props: ButtonProps) => (
   <IconButton {...props} icon={<AddIcon />} label="追加" />
 );
-export default LoginButton;
+export default AddButton;
