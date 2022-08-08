@@ -9,10 +9,11 @@ import Typography from "@mui/material/Typography";
 import LoginButton from "components/atoms/Button/LoginButton";
 import LogoutButton from "components/atoms/Button/LogoutButton";
 import MenuButton from "components/atoms/Button/MenuButton";
-import useWindowSize from "hooks/useWindowSize";
 
-const Header = () => {
-  const { width } = useWindowSize();
+import HeaderProps from "./type/index";
+
+const Header = (props: HeaderProps) => {
+  const { visible = false } = props;
 
   const [isLogin, setIsLogin] = React.useState(false);
   const login = () => setIsLogin(true);
@@ -20,8 +21,8 @@ const Header = () => {
 
   return (
     <AppBar>
-      <Toolbar css={styles.toolbar}>
-        {width <= 750 && (
+      <Toolbar css={styles.toolbar(visible)}>
+        {visible && (
           <MenuButton onClick={() => undefined} css={styles.button} />
         )}
 
@@ -42,14 +43,10 @@ const Header = () => {
 export default Header;
 
 const styles = {
-  toolbar: css`
+  toolbar: (visible: boolean) => css`
+    width: 100vw;
     display: grid;
-    @media (max-width: 750px) {
-      grid-template-columns: 80px 1fr 100px;
-    }
-    @media (min-width: 751px) {
-      grid-template-columns: 1fr 100px;
-    }
+    grid-template-columns: ${visible ? "80px 1fr 100px" : "1fr 100px"};
   `,
   button: css`
     color: white;
