@@ -23,13 +23,15 @@ const styles = {
   listItem: css`
     height: 60px;
     width: 200px;
-    border: soild 10px;
+    border: 1px solid black;
     text-align: center;
     cursor: pointer;
     transition: all 0.5s;
-    color: #3f50b5;
+    color: #5f76f8;
     :hover {
-      background-color: #e6ffff;
+      color: white;
+      background-color: #5f76f8;
+      border: none;
     }
   `,
 };
