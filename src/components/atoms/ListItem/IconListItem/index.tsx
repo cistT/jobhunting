@@ -23,7 +23,7 @@ export default IconListItem;
 const styles = {
   listItem: css`
     height: 60px;
-    width: 40vw;
+    width: 100%;
     text-align: center;
     cursor: pointer;
     transition: all 0.5s;
