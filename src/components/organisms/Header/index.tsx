@@ -46,7 +46,7 @@ export default Header;
 
 const styles = {
   header: css`
-    padding-bottom: 40px;
+    padding-bottom: 70px;
   `,
   toolbar: (visible: boolean) => css`
     width: 100vw;
