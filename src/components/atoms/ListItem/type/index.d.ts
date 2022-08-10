@@ -1,9 +1,12 @@
 import React from "react";
 
-type ListItemProps = {
+type IconListItemProps = {
+  icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+    muiName: string;
+  };
   label: string;
   onClick?: React.MouseEventHandler<HTMLLIElement>;
   className?: string;
 };
 
-export default ListItemProps;
+export default IconListItemProps;
