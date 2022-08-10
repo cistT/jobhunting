@@ -20,29 +20,34 @@ const Header = (props: HeaderProps) => {
   const logout = () => setIsLogin(false);
 
   return (
-    <AppBar>
-      <Toolbar css={styles.toolbar(visible)}>
-        {visible && (
-          <MenuButton onClick={() => undefined} css={styles.button} />
-        )}
+    <header css={styles.header}>
+      <AppBar>
+        <Toolbar css={styles.toolbar(visible)}>
+          {visible && (
+            <MenuButton onClick={() => undefined} css={styles.button} />
+          )}
 
-        <Typography variant="h6" component="div">
-          就活管理アプリ
-        </Typography>
+          <Typography variant="h6" component="div">
+            就活管理アプリ
+          </Typography>
 
-        {isLogin ? (
-          <LogoutButton onClick={logout} css={styles.button} />
-        ) : (
-          <LoginButton onClick={login} css={styles.button} />
-        )}
-      </Toolbar>
-    </AppBar>
+          {isLogin ? (
+            <LogoutButton onClick={logout} css={styles.button} />
+          ) : (
+            <LoginButton onClick={login} css={styles.button} />
+          )}
+        </Toolbar>
+      </AppBar>
+    </header>
   );
 };
 
 export default Header;
 
 const styles = {
+  header: css`
+    padding-bottom: 40px;
+  `,
   toolbar: (visible: boolean) => css`
     width: 100vw;
     display: grid;
