@@ -2,6 +2,8 @@ import React from "react";
 
 import { css } from "@emotion/react";
 
+import { Typography } from "@mui/material";
+
 import DateBoxProps from "./type/index";
 
 const extractDate = (date: Date) => {
@@ -15,9 +17,13 @@ const DateBox = (props: DateBoxProps) => {
   const { date, className } = props;
   const { year, month, day } = extractDate(date);
   return (
-    <div css={styles.date} className={className}>
+    <Typography
+      variant="h3"
+      component="h3"
+      css={styles.date}
+      className={className}>
       {year} / {month} / {day}
-    </div>
+    </Typography>
   );
 };
 
@@ -29,6 +35,5 @@ const styles = {
     width: 200px;
     font-size: 26px;
     text-align: center;
-    border: 1px solid black;
   `,
 };
