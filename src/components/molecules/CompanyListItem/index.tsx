@@ -16,11 +16,11 @@ const CompanyListItem = (props: CompanyListItemProps) => {
   const { label, date, onClick = () => undefined, className = "" } = props;
   return (
     <>
-      <ListItem css={styles.container} onClick={onClick}>
+      <ListItem css={styles.container} onClick={onClick} className={className}>
         <Typography variant="h3" component="h3" css={styles.label}>
           {label}
         </Typography>
-        <DateBox date={date} className={className} />
+        <DateBox date={date} />
       </ListItem>
 
       <Divider />
