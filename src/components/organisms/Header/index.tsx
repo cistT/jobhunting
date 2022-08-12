@@ -29,7 +29,7 @@ const Header = (props: HeaderProps) => {
             <MenuButton onClick={() => undefined} css={styles.button} />
           )}
 
-          <Typography variant="h6" component="div">
+          <Typography variant="h1" component="h1" css={styles.text}>
             就活管理アプリ
           </Typography>
 
@@ -57,5 +57,9 @@ const styles = {
   `,
   button: css`
     color: white;
+  `,
+  text: css`
+    font-size: 30px;
+    vertical-align: middle;
   `,
 };
