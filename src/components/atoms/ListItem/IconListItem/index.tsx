@@ -4,17 +4,22 @@ import { css } from "@emotion/react";
 
 import { ListItem, ListItemText } from "@mui/material";
 
-import ListItemProps from "../type";
+export type IconListItemProps = {
+  icon: React.ReactElement<any, any>;
+  label: string;
+  onClick?: React.MouseEventHandler<HTMLLIElement>;
+  className?: string;
+};
 
-const IconListItem = (props: ListItemProps) => {
+const IconListItem = (props: IconListItemProps) => {
   const { icon, label, onClick = () => undefined, className = "" } = props;
   return (
-    <>
-      <ListItem css={styles.listItem} className={className} onClick={onClick}>
+    <ListItem css={styles.listItem} className={className} onClick={onClick}>
+      <>
         {icon}
         <ListItemText primary={label} />
-      </ListItem>
-    </>
+      </>
+    </ListItem>
   );
 };
 
