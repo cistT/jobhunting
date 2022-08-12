@@ -1,13 +1,10 @@
 import React from "react";
 
-import { css } from "@emotion/react";
-
 import { ComponentMeta } from "@storybook/react";
 
 import ListIcon from "@mui/icons-material/List";
 
-import IconListItem from ".";
-import IconListItemProps from "../type";
+import IconListItem, { IconListItemProps } from ".";
 
 export default {
   title: "ListItem/IconListItem",
