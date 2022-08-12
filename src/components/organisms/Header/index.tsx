@@ -10,7 +10,9 @@ import LoginButton from "components/atoms/Button/LoginButton";
 import LogoutButton from "components/atoms/Button/LogoutButton";
 import MenuButton from "components/atoms/Button/MenuButton";
 
-import HeaderProps from "./type/index";
+export type HeaderProps = {
+  visible?: boolean;
+};
 
 const Header = (props: HeaderProps) => {
   const { visible = false } = props;
