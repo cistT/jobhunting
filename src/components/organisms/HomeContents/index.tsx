@@ -8,7 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Divider, Typography } from "@mui/material";
 
-import List from "components/molecules/List";
+import IconList from "components/molecules/IconList";
 import CompanyList, { CompanyListProps } from "../CompanyList";
 
 import useWindowSize from "hooks/useWindowSize";
@@ -47,7 +47,7 @@ const HomeContents = (props: HomeContentsProps) => {
       {width > 600 && (
         <div css={styles.leftContainer}>
           <div></div>
-          <List items={items} />
+          <IconList items={items} />
           <Divider />
         </div>
       )}
