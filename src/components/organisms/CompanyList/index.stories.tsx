@@ -9,17 +9,15 @@ export default {
   component: CompanyList,
 } as ComponentMeta<typeof CompanyList>;
 
-const onClick = () => undefined;
 const dummyData = [
   {
     id: "1",
-    label: "モーターヘッドモーターズ",
-    date: new Date("2022/8/11"),
-    onClick,
+    name: "モーターヘッドモーターズ",
+    interviewDate: new Date("2022/8/11"),
   },
-  { id: "2", label: "山下商事", date: new Date("2022/7/10"), onClick },
-  { id: "3", label: "大日本銀行", date: new Date("2022/8/1"), onClick },
-  { id: "4", label: "古海製薬", date: new Date("2022/9/29"), onClick },
+  { id: "2", name: "山下商事", interviewDate: new Date("2022/7/10") },
+  { id: "3", name: "大日本銀行", interviewDate: new Date("2022/8/1") },
+  { id: "4", name: "古海製薬", interviewDate: new Date("2022/9/29") },
 ];
 
 export const Original = () => {
