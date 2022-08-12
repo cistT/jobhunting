@@ -7,7 +7,11 @@ import CalenderButton from "components/atoms/Button/CalenderButton";
 import HomeButton from "components/atoms/Button/HomeButton";
 import ListButton from "components/atoms/Button/ListButton";
 
-import FixedMenuProps from "./type/index";
+export type Focus = "Home" | "List" | "Add" | "Calender";
+
+export type FixedMenuProps = {
+  focus?: Focus;
+};
 
 const FixedMenu = (props: FixedMenuProps) => {
   const { focus = "Home" } = props;
