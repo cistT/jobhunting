@@ -1,11 +1,14 @@
 import React from "react";
 
-import CompanyListItem, {
-  CompanyListItemProps,
-} from "components/molecules/CompanyListItem";
+import CompanyListItem from "components/molecules/CompanyListItem";
+
+import { companiesType } from "types";
 
 export type CompanyListProps = {
-  companies: (CompanyListItemProps & { id: string })[];
+  companies: (companiesType & {
+    onClick?: React.MouseEventHandler<HTMLLIElement>;
+    className?: string;
+  })[];
   className?: string;
 };
 
@@ -13,11 +16,11 @@ const CompanyList = (props: CompanyListProps) => {
   const { companies, className = "" } = props;
 
   return (
-    <div>
-      {companies.map(({ label, date, className, id }) => (
+    <div className={className}>
+      {companies.map(({ name, interviewDate, className, id }) => (
         <CompanyListItem
-          label={label}
-          date={date}
+          label={name}
+          date={interviewDate}
           className={className}
           key={id}
         />
