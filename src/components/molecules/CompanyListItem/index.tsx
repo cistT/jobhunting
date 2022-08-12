@@ -32,13 +32,15 @@ export default CompanyListItem;
 const styles = {
   container: css`
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     padding-bottom: 5px;
     :hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
   `,
   label: css`
+    inline-size: 70%;
     font-size: 26px;
+    overflow-wrap: break-word;
   `,
 };
