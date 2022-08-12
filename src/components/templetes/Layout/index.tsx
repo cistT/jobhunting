@@ -3,10 +3,14 @@ import React from "react";
 import { css } from "@emotion/react";
 
 import Header from "components/organisms/Header";
-import FixedMenu from "components/organisms/FixedMenu";
+import FixedMenu, { Focus } from "components/organisms/FixedMenu";
 
-import LayoutProps from "./type/index";
 import useWindowSize from "hooks/useWindowSize";
+
+type LayoutProps = {
+  children?: React.ReactNode;
+  focus?: Focus;
+};
 
 const Layout = (props: LayoutProps) => {
   const { children, focus = "Home" } = props;
