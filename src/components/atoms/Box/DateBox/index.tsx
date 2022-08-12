@@ -4,13 +4,16 @@ import { css } from "@emotion/react";
 
 import { Typography } from "@mui/material";
 
-import DateBoxProps from "./type/index";
-
 const extractDate = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   return { year, month, day };
+};
+
+export type DateBoxProps = {
+  date: Date;
+  className?: string;
 };
 
 const DateBox = (props: DateBoxProps) => {
