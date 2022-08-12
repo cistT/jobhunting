@@ -13,7 +13,7 @@ const IconButton = (props: IconButtonProps) => {
     <Button css={[styles.button]} className={className} onClick={onClick}>
       <div>
         {icon}
-        <div>{label}</div>
+        {label && <div>{label}</div>}
       </div>
     </Button>
   );
@@ -23,6 +23,7 @@ export default IconButton;
 
 const styles = {
   button: css`
+    height: 100%;
     text-align: center;
   `,
 };
