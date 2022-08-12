@@ -1,8 +1,5 @@
 import React from "react";
 
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { SvgIconTypeMap } from "@mui/material";
-
 import IconListItem, {
   IconListItemProps,
 } from "components/atoms/ListItem/IconListItem";
