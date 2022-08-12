@@ -68,12 +68,11 @@ const styles = {
   container: css`
     display: grid;
     grid-template-columns: 25vw 1fr;
-
-    gap: 10px;
+    gap: 20px;
   `,
   leftContainer: css`
     display: grid;
-    grid-template-rows: 40px 80px 80px 80px 80px 0px;
+    grid-template-rows: 40px 240px 0px;
     gap: 2.5px;
   `,
   rightContainer: css`
