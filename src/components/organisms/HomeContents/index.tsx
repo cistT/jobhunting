@@ -9,11 +9,11 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Divider, Typography } from "@mui/material";
 
 import IconList from "components/molecules/IconList";
-import CompanyList, { CompanyListProps } from "../CompanyList";
+import CompanyDateList, { CompanyDateListProps } from "../CompanyDateList";
 
 import useWindowSize from "hooks/useWindowSize";
 
-export type HomeContentsProps = CompanyListProps;
+export type HomeContentsProps = CompanyDateListProps;
 
 const HomeContents = (props: HomeContentsProps) => {
   const { companies } = props;
@@ -56,7 +56,7 @@ const HomeContents = (props: HomeContentsProps) => {
           直近の予定
         </Typography>
         <Divider />
-        <CompanyList companies={companies} />
+        <CompanyDateList companies={companies} />
       </div>
     </div>
   );
