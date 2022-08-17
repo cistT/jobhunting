@@ -3,6 +3,7 @@ import React from "react";
 import { css } from "@emotion/react";
 
 import Header from "components/organisms/Header";
+import SideMenu from "components/organisms/SideMenu";
 import FixedMenu, { Focus } from "components/organisms/FixedMenu";
 
 import useWindowSize from "hooks/useWindowSize";
@@ -16,17 +17,24 @@ const Layout = (props: LayoutProps) => {
   const { children, focus = "Home" } = props;
   const { width } = useWindowSize();
   return (
-    <div css={styles.container}>
+    <>
       <Header visible={width <= 600} />
-      <main>{children}</main>
+
+      <div css={styles.container(width > 600)}>
+        {width > 600 && <SideMenu />}
+        <main>{children}</main>
+      </div>
 
       {width <= 600 && <FixedMenu focus={focus} />}
-    </div>
+    </>
   );
 };
 
 export default Layout;
 
 const styles = {
-  container: css``,
+  container: (visible: boolean = false) => css`
+    display: grid;
+    grid-template-columns: ${visible ? "30% 1fr" : "1fr"};
+  `,
 };
