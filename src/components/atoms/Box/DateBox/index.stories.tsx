@@ -11,5 +11,6 @@ export default {
 
 export const Original = () => {
   const date = new Date();
+
   return <DateBox date={date} />;
 };

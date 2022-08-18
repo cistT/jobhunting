@@ -2,8 +2,8 @@ import React from "react";
 
 import { ComponentMeta } from "@storybook/react";
 
-import CompanyDateList from ".";
 import testData from "data/testData";
+import CompanyDateList from ".";
 
 export default {
   title: "organisms/CompanyDateList",
@@ -12,6 +12,4 @@ export default {
 
 const companies = testData;
 
-export const Original = () => {
-  return <CompanyDateList companies={companies} />;
-};
+export const Original = () => <CompanyDateList companies={companies} />;

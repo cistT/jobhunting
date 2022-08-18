@@ -18,6 +18,7 @@ const CompanyList = (props: CompanyDateListProps) => {
 
   return (
     <div className={className}>
+      {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
       {companies.map(({ name, interviewDate, className, id }) => (
         <CompanyListItem
           label={name}

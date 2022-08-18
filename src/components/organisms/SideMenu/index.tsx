@@ -34,9 +34,10 @@ const SideMenu = () => {
       onClick: onClickHoge,
     },
   ];
+
   return (
     <div css={styles.container}>
-      <div></div>
+      <div />
       <IconList items={items} />
       <Divider />
     </div>

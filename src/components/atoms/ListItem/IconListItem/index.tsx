@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { ListItem, ListItemText } from "@mui/material";
 
 export type IconListItemProps = {
-  icon: React.ReactElement<any, any>;
+  icon: JSX.Element;
   label: string;
   onClick?: React.MouseEventHandler<HTMLLIElement>;
   className?: string;
@@ -13,6 +13,7 @@ export type IconListItemProps = {
 
 const IconListItem = (props: IconListItemProps) => {
   const { icon, label, onClick = () => undefined, className = "" } = props;
+
   return (
     <ListItem css={styles.listItem} className={className} onClick={onClick}>
       <>

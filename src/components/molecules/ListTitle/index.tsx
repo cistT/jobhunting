@@ -11,6 +11,7 @@ export type ListTitleProps = {
 
 const ListTitle = (props: ListTitleProps) => {
   const { title, className = "" } = props;
+
   return (
     <div css={styles.container}>
       <Typography

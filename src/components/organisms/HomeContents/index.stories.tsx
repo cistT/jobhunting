@@ -2,8 +2,8 @@ import React from "react";
 
 import { ComponentMeta } from "@storybook/react";
 
-import HomeContents from ".";
 import testData from "data/testData";
+import HomeContents from ".";
 
 export default {
   title: "Organisms/HomeContents",

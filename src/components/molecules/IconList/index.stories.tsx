@@ -1,7 +1,5 @@
 import React from "react";
 
-import { css } from "@emotion/react";
-
 import HomeIcon from "@mui/icons-material/Home";
 
 import { ComponentMeta } from "@storybook/react";
@@ -25,6 +23,5 @@ const props: IconListProps = {
   ],
 };
 
-export const Original = () => {
-  return <IconList items={props.items} />;
-};
+// eslint-disable-next-line react/prop-types
+export const Original = () => <IconList items={props.items} />;

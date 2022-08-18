@@ -16,6 +16,7 @@ type LayoutProps = {
 const Layout = (props: LayoutProps) => {
   const { children, focus = "Home" } = props;
   const { width } = useWindowSize();
+
   return (
     <>
       <Header visible={width <= 600} />
@@ -33,7 +34,7 @@ const Layout = (props: LayoutProps) => {
 export default Layout;
 
 const styles = {
-  container: (visible: boolean = false) => css`
+  container: (visible = false) => css`
     display: grid;
     grid-template-columns: ${visible ? "30% 1fr" : "1fr"};
   `,

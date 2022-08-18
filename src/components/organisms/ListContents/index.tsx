@@ -9,6 +9,7 @@ export type ListContentsProps = CompanyResultListProps;
 
 const ListContents = (props: ListContentsProps) => {
   const { companies, className = "" } = props;
+
   return (
     <>
       <ListTitle title="企業一覧" />

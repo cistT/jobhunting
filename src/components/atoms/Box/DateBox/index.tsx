@@ -8,6 +8,7 @@ const extractDate = (date: Date) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
+
   return { year, month, day };
 };
 
@@ -19,6 +20,7 @@ export type DateBoxProps = {
 const DateBox = (props: DateBoxProps) => {
   const { date, className } = props;
   const { year, month, day } = extractDate(date);
+
   return (
     <Typography
       variant="h3"

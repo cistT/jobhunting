@@ -18,23 +18,23 @@ export type CompanyResultListProps = {
 
 const CompanyResultList = (props: CompanyResultListProps) => {
   const { companies, className = "" } = props;
+
   return (
-    <>
-      <div className={className}>
-        {companies.map(({ name, result, className, id }) => (
-          <CompanyListItem
-            label={name}
-            rightItem={
-              <Typography variant="h3" component="h3" css={styles.rightItem}>
-                {result}
-              </Typography>
-            }
-            className={className}
-            key={id}
-          />
-        ))}
-      </div>
-    </>
+    <div className={className}>
+      {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
+      {companies.map(({ name, result, className, id }) => (
+        <CompanyListItem
+          label={name}
+          rightItem={
+            <Typography variant="h3" component="h3" css={styles.rightItem}>
+              {result}
+            </Typography>
+          }
+          className={className}
+          key={id}
+        />
+      ))}
+    </div>
   );
 };
 

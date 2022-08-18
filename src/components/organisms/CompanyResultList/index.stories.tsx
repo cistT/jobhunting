@@ -2,9 +2,9 @@ import React from "react";
 
 import { ComponentMeta } from "@storybook/react";
 
+import testData from "data/testData";
 import CompanyResultList from ".";
 
-import testData from "data/testData";
 
 export default {
   title: "organisms/CompanyResultList",
@@ -13,6 +13,4 @@ export default {
 
 const companies = testData;
 
-export const Original = () => {
-  return <CompanyResultList companies={companies} />;
-};
+export const Original = () => <CompanyResultList companies={companies} />;

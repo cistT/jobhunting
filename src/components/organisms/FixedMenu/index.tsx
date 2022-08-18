@@ -16,6 +16,7 @@ export type FixedMenuProps = {
 const FixedMenu = (props: FixedMenuProps) => {
   const { focus = "Home" } = props;
   const hoge = () => undefined;
+
   return (
     <div css={styles.container}>
       <HomeButton onClick={hoge} css={styles.button(focus === "Home")} />

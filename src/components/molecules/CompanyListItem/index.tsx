@@ -6,7 +6,7 @@ import { Divider, ListItem, Typography } from "@mui/material";
 
 export type CompanyListItemProps = {
   label: string;
-  rightItem?: React.ReactElement<any, any>;
+  rightItem?: JSX.Element;
   onClick?: React.MouseEventHandler<HTMLLIElement>;
   className?: string;
 };
@@ -18,6 +18,7 @@ const CompanyListItem = (props: CompanyListItemProps) => {
     onClick = () => undefined,
     className = "",
   } = props;
+
   return (
     <>
       <ListItem css={styles.container} onClick={onClick} className={className}>
