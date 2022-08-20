@@ -7,7 +7,7 @@ import { Divider, ListItem, Typography } from "@mui/material";
 export type CompanyListItemProps = {
   label: string;
   rightItem?: JSX.Element;
-  onClick?: React.MouseEventHandler<HTMLLIElement>;
+  onClick?: (event?: React.MouseEvent) => void;
   className?: string;
 };
 

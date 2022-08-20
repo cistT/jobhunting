@@ -7,7 +7,7 @@ import { CompaniesType } from "types";
 
 export type CompanyDateListProps = {
   companies: (CompaniesType & {
-    onClick?: React.MouseEventHandler<HTMLLIElement>;
+    onClick?: (event?: React.MouseEvent) => void;
     className?: string;
   })[];
   className?: string;
@@ -18,13 +18,13 @@ const CompanyList = (props: CompanyDateListProps) => {
 
   return (
     <div className={className}>
-      {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
-      {companies.map(({ name, interviewDate, className, id }) => (
+      {companies.map((company) => (
         <CompanyListItem
-          label={name}
-          rightItem={<DateBox date={interviewDate} />}
-          className={className}
-          key={id}
+          label={company.name}
+          onClick={company.onClick}
+          rightItem={<DateBox date={company.interviewDate} />}
+          className={company.className}
+          key={company.id}
         />
       ))}
     </div>

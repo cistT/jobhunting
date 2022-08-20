@@ -6,11 +6,11 @@ import { Typography } from "@mui/material";
 
 import CompanyListItem from "components/molecules/CompanyListItem";
 
-import { CompaniesType } from "types";
+import { CompanyType } from "types";
 
 export type CompanyResultListProps = {
-  companies: (CompaniesType & {
-    onClick?: React.MouseEventHandler<HTMLLIElement>;
+  companies: (CompanyType & {
+    onClick?: (event?: React.MouseEvent) => void;
     className?: string;
   })[];
   className?: string;
@@ -21,17 +21,17 @@ const CompanyResultList = (props: CompanyResultListProps) => {
 
   return (
     <div className={className}>
-      {/* eslint-disable-next-line @typescript-eslint/no-shadow */}
-      {companies.map(({ name, result, className, id }) => (
+      {companies.map((company) => (
         <CompanyListItem
-          label={name}
+          label={company.name}
+          onClick={company.onClick}
           rightItem={
             <Typography variant="h3" component="h3" css={styles.rightItem}>
-              {result}
+              {company.result}
             </Typography>
           }
-          className={className}
-          key={id}
+          className={company.className}
+          key={company.id}
         />
       ))}
     </div>
