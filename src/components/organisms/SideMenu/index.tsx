@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useRouter } from "next/router";
+
 import { css } from "@emotion/react";
 
 import HomeIcon from "@mui/icons-material/Home";
@@ -11,27 +13,28 @@ import { Divider } from "@mui/material";
 import IconList from "components/molecules/IconList";
 
 const SideMenu = () => {
-  const onClickHoge = () => undefined;
+  const router = useRouter();
+
   const items = [
     {
       icon: <HomeIcon />,
       label: "Home",
-      onClick: onClickHoge,
+      onClick: () => router.push("/"),
     },
     {
       icon: <ListIcon />,
       label: "企業一覧",
-      onClick: onClickHoge,
+      onClick: () => router.push("/list"),
     },
     {
       icon: <AddIcon />,
       label: "企業の追加",
-      onClick: onClickHoge,
+      onClick: () => router.push("/add"),
     },
     {
       icon: <CalendarMonthIcon />,
       label: "予定",
-      onClick: onClickHoge,
+      onClick: () => router.push("/schedule"),
     },
   ];
 
