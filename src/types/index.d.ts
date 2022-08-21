@@ -1,6 +1,9 @@
-export type CompaniesType = {
+export type CompanyType = {
   id: string;
   name: string;
-  interviewDate: Date;
+  companyUrl?: string;
+  adoptionUrl?: string;
+  interviewDate?: Date;
+  internshipDate?: Date;
   result: "合格" | "不合格" | "未定";
 };
