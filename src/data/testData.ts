@@ -1,10 +1,11 @@
-import { CompaniesType } from "./../types/index.d";
+import { CompanyType } from "../types/index";
 
-const testData: CompaniesType[] = [
+const testData: CompanyType[] = [
   {
     id: "1",
     name: "モーターヘッドモーターズ",
     interviewDate: new Date("2022/8/11"),
+    internshipDate: new Date("2022/10/1"),
     result: "合格",
   },
   {
@@ -16,13 +17,12 @@ const testData: CompaniesType[] = [
   {
     id: "3",
     name: "大日本銀行",
-    interviewDate: new Date("2022/8/1"),
+    internshipDate: new Date("2022/9/3"),
     result: "不合格",
   },
   {
     id: "4",
     name: "古海製薬",
-    interviewDate: new Date("2022/9/29"),
     result: "未定",
   },
 ];
