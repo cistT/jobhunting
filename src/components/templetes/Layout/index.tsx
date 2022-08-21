@@ -37,5 +37,6 @@ const styles = {
   container: (visible = false) => css`
     display: grid;
     grid-template-columns: ${visible ? "30% 1fr" : "1fr"};
+    gap: 10px;
   `,
 };
