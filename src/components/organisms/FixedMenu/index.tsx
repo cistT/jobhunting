@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useRouter } from "next/router";
+
 import { css } from "@emotion/react";
 
 import AddButton from "components/atoms/Button/AddButton";
@@ -15,15 +17,25 @@ export type FixedMenuProps = {
 
 const FixedMenu = (props: FixedMenuProps) => {
   const { focus = "Home" } = props;
-  const hoge = () => undefined;
+
+  const router = useRouter();
 
   return (
     <div css={styles.container}>
-      <HomeButton onClick={hoge} css={styles.button(focus === "Home")} />
-      <ListButton onClick={hoge} css={styles.button(focus === "List")} />
-      <AddButton onClick={hoge} css={styles.button(focus === "Add")} />
+      <HomeButton
+        onClick={() => router.push("/")}
+        css={styles.button(focus === "Home")}
+      />
+      <ListButton
+        onClick={() => router.push("/list")}
+        css={styles.button(focus === "List")}
+      />
+      <AddButton
+        onClick={() => router.push("/add")}
+        css={styles.button(focus === "Add")}
+      />
       <CalenderButton
-        onClick={hoge}
+        onClick={() => router.push("/schedule")}
         css={styles.button(focus === "Calender")}
       />
     </div>
