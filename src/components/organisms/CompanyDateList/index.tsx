@@ -3,10 +3,10 @@ import React from "react";
 import DateBox from "components/atoms/Box/DateBox";
 import CompanyListItem from "components/molecules/CompanyListItem";
 
-import { CompaniesType } from "types";
+import { CompanyType } from "types";
 
 export type CompanyDateListProps = {
-  companies: (CompaniesType & {
+  companies: (CompanyType & {
     onClick?: (event?: React.MouseEvent) => void;
     className?: string;
   })[];
@@ -22,7 +22,9 @@ const CompanyList = (props: CompanyDateListProps) => {
         <CompanyListItem
           label={company.name}
           onClick={company.onClick}
-          rightItem={<DateBox date={company.interviewDate} />}
+          rightItem={
+            company?.interviewDate && <DateBox date={company.interviewDate} />
+          }
           className={company.className}
           key={company.id}
         />
