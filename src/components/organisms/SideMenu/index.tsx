@@ -28,7 +28,7 @@ const SideMenu = () => {
     },
     {
       icon: <AddIcon />,
-      label: "企業の追加",
+      label: "企業の登録",
       onClick: () => router.push("/add"),
     },
     {
