@@ -19,7 +19,7 @@ const Layout = (props: LayoutProps) => {
 
   return (
     <>
-      <Header visible={width <= 600} />
+      <Header />
 
       <div css={styles.container(width > 600)}>
         {width > 600 && <SideMenu />}
