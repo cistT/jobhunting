@@ -36,8 +36,6 @@ export default DateBox;
 
 const styles = {
   date: css`
-    height: 100%;
-    width: 100%;
     font-size: 26px;
     text-align: center;
   `,
