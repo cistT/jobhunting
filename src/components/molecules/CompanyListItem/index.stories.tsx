@@ -11,8 +11,5 @@ export default {
 } as ComponentMeta<typeof CompanyListItem>;
 
 export const Original = () => (
-    <CompanyListItem
-      label="Original"
-      rightItem={<DateBox date={new Date()} />}
-    />
-  );
+  <CompanyListItem label="Original" item={<DateBox date={new Date()} />} />
+);

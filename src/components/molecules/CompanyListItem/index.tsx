@@ -6,7 +6,8 @@ import { Divider, ListItem, Typography } from "@mui/material";
 
 export type CompanyListItemProps = {
   label: string;
-  rightItem?: JSX.Element;
+  item?: JSX.Element;
+  bottom?: boolean;
   onClick?: (event?: React.MouseEvent) => void;
   className?: string;
 };
@@ -14,19 +15,23 @@ export type CompanyListItemProps = {
 const CompanyListItem = (props: CompanyListItemProps) => {
   const {
     label,
-    rightItem = undefined,
+    item = undefined,
+    bottom = false,
     onClick = () => undefined,
     className = "",
   } = props;
 
   return (
     <>
-      <ListItem css={styles.container} onClick={onClick} className={className}>
+      <ListItem
+        css={bottom ? styles.containerBottom : styles.container}
+        onClick={onClick}
+        className={className}>
         <>
           <Typography variant="h3" component="h3" css={styles.label}>
             {label}
           </Typography>
-          {rightItem}
+          <div>{item}</div>
         </>
       </ListItem>
 
@@ -39,15 +44,25 @@ export default CompanyListItem;
 const styles = {
   container: css`
     display: grid;
-    grid-template-columns: 60% 40%;
-    padding-bottom: 5px;
+    grid-template-columns: 70% 1fr;
+    padding: 20px 10px;
+    :hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  `,
+  containerBottom: css`
+    display: grid;
+    grid-template-rows: 70% 1fr;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 5px 10px 30px 10px;
     :hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
   `,
   label: css`
-    inline-size: 70%;
-    font-size: 26px;
+    font-size: clamp(1.5rem, 1vw + 1rem, 2.25rem);
     overflow-wrap: break-word;
   `,
 };
