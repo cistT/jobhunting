@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import CompanyListItem from "components/molecules/CompanyListItem";
 
 import { CompanyType } from "types";
+import useWindowSize from "hooks/useWindowSize";
 
 export type CompanyResultListProps = {
   companies: (CompanyType & {
@@ -18,6 +19,7 @@ export type CompanyResultListProps = {
 
 const CompanyResultList = (props: CompanyResultListProps) => {
   const { companies, className = "" } = props;
+  const { width } = useWindowSize();
 
   return (
     <div className={className}>
@@ -25,12 +27,13 @@ const CompanyResultList = (props: CompanyResultListProps) => {
         <CompanyListItem
           label={company.name}
           onClick={company.onClick}
-          rightItem={
-            <Typography variant="h3" component="h3" css={styles.rightItem}>
+          item={
+            <Typography variant="h3" component="h3" css={styles.resultItem}>
               {company.result}
             </Typography>
           }
           className={company.className}
+          bottom={width < 600}
           key={company.id}
         />
       ))}
@@ -41,10 +44,9 @@ const CompanyResultList = (props: CompanyResultListProps) => {
 export default CompanyResultList;
 
 const styles = {
-  rightItem: css`
+  resultItem: css`
     height: 100%;
     width: 100%;
-    font-size: 26px;
-    text-align: center;
+    font-size: clamp(1rem, 1vw + 1rem, 2.25rem);
   `,
 };
