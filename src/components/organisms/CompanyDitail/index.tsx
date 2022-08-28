@@ -6,8 +6,9 @@ import { Typography } from "@mui/material";
 
 import { CompanyType } from "types";
 import DateBox from "components/atoms/Box/DateBox";
-import CompanyItem from "components/molecules/CompanyItem";
+
 import ListTitle from "components/molecules/ListTitle";
+import CompanyDitailItem from "components/molecules/CompanyDitailItem";
 
 export type CompanyDitailProps = {
   company: CompanyType;
@@ -17,19 +18,19 @@ const CompanyDitail = (props: CompanyDitailProps) => {
   const { company } = props;
   const items = [
     {
-      listName: "面接日",
+      label: "面接日",
       element: company?.interviewDate && (
         <DateBox date={company.interviewDate} />
       ),
     },
     {
-      listName: "インターンシップ日",
+      label: "インターンシップ日",
       element: company?.internshipDate && (
         <DateBox date={company.internshipDate} />
       ),
     },
     {
-      listName: "合否",
+      label: "合否",
       element: (
         <Typography variant="h5" component="h5" css={styles.text}>
           {company.result}
@@ -42,7 +43,7 @@ const CompanyDitail = (props: CompanyDitailProps) => {
     <>
       <ListTitle title={company.name} />
       {items.map((item) => (
-        <CompanyItem listName={item.listName} element={item.element} />
+        <CompanyDitailItem label={item.label} element={item.element} />
       ))}
     </>
   );
@@ -51,10 +52,6 @@ const CompanyDitail = (props: CompanyDitailProps) => {
 export default CompanyDitail;
 
 const styles = {
-  upside: css`
-    display: flex;
-    justify-content: space-between;
-  `,
   text: css`
     text-align: center;
   `,
