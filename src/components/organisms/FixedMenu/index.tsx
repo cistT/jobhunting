@@ -24,7 +24,7 @@ const FixedMenu = (props: FixedMenuProps) => {
     <div css={styles.container}>
       <HomeButton
         onClick={() => router.push("/")}
-        css={styles.button(focus === "Home")}
+        css={styles.button(router.pathname === "/" && focus === "Home")}
       />
       <ListButton
         onClick={() => router.push("/list")}
@@ -51,7 +51,7 @@ const styles = {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     position: fixed;
     bottom: 0;
-    background-color: rgba(180, 180, 180, 0.1);
+    background-color: rgb(255, 255, 255);
   `,
   button: (focused: boolean) => css`
     color: ${focused && "white"};
