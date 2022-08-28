@@ -41,14 +41,17 @@ const styles = {
   `,
   toolbar: css`
     width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 100px;
-  `,
-  button: css`
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
   `,
   text: css`
     font-size: 30px;
     vertical-align: middle;
+    flex-basis: 8;
+  `,
+  button: css`
+    color: white;
+    flex-basis: 2;
   `,
 };
