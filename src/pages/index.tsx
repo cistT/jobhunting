@@ -9,7 +9,7 @@ import { Companies } from "./_app";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const companies = React.useContext(Companies);
+  const { registeredCompanyData } = React.useContext(Companies);
 
   return (
     <>
@@ -17,9 +17,9 @@ const Home: NextPage = () => {
         <title>就活管理アプリ</title>
       </Head>
       <HomeContents
-        companies={companies.map((data) => ({
+        companies={registeredCompanyData.map((data) => ({
           ...data,
-          onClick: () => router.push("/list"),
+          onClick: () => router.push(`/list/${data.id}`),
         }))}
       />
     </>
