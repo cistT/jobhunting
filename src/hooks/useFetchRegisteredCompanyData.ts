@@ -6,10 +6,12 @@ import companyReducer, { Action } from "utils/reducer/companyReducer";
 
 import testData from "data/testData";
 
-export type UseFetchRegisteredCompanyData = () => {
+export type CompanyDataWithUpDate = {
   registeredCompanyData: CompanyType[];
   dispatchRegisteredCompanyData: React.Dispatch<Action>;
 };
+
+type UseFetchRegisteredCompanyData = () => CompanyDataWithUpDate;
 
 /**
  *データベースから取得した、ユーザが登録した企業情報データ及び企業情報の更新関数を返す関数
@@ -24,7 +26,12 @@ const useFetchRegisteredCompanyData: UseFetchRegisteredCompanyData = () => {
     dispatchRegisteredCompanyData({ type: "init", fetchCompanyData: testData });
   }, []);
 
-  return { registeredCompanyData, dispatchRegisteredCompanyData };
+  const companyDataWithUpDate = React.useMemo(
+    () => ({ registeredCompanyData, dispatchRegisteredCompanyData }),
+    [dispatchRegisteredCompanyData, registeredCompanyData],
+  );
+
+  return companyDataWithUpDate;
 };
 
 export default useFetchRegisteredCompanyData;
