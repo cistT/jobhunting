@@ -3,16 +3,27 @@ import type { AppProps } from "next/app";
 
 import "modern-css-reset/dist/reset.min.css";
 import Layout from "components/templetes/Layout";
-import testData from "data/testData";
 
-export const Companies = React.createContext(testData);
+import useFetchRegisteredCompanyData, {
+  CompanyDataWithUpDate,
+} from "hooks/useFetchRegisteredCompanyData";
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <Companies.Provider value={testData}>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  </Companies.Provider>
-);
+export const Companies: React.Context<CompanyDataWithUpDate> =
+  React.createContext<CompanyDataWithUpDate>({
+    registeredCompanyData: [],
+    dispatchRegisteredCompanyData: () => undefined,
+  });
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  const companyDataWithUpDate = useFetchRegisteredCompanyData();
+
+  return (
+    <Companies.Provider value={companyDataWithUpDate}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Companies.Provider>
+  );
+};
 
 export default MyApp;
