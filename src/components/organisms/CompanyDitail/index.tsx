@@ -16,7 +16,13 @@ export type CompanyDitailProps = {
 
 const CompanyDitail = (props: CompanyDitailProps) => {
   const { company } = props;
-  const items = [
+  const items: { label: string; element: JSX.Element | undefined }[] = [
+    {
+      label: "説明会日",
+      element: company?.explanatoryMeetingDate && (
+        <DateBox date={company.explanatoryMeetingDate} />
+      ),
+    },
     {
       label: "面接日",
       element: company?.interviewDate && (
@@ -30,8 +36,24 @@ const CompanyDitail = (props: CompanyDitailProps) => {
       ),
     },
     {
-      label: "合否",
+      label: "ホームページURL",
       element: (
+        <Typography variant="h5" component="h5" css={styles.text}>
+          {company?.companyUrl ?? ""}
+        </Typography>
+      ),
+    },
+    {
+      label: "採用ページURL",
+      element: (
+        <Typography variant="h5" component="h5" css={styles.text}>
+          {company?.adoptionUrl ?? ""}
+        </Typography>
+      ),
+    },
+    {
+      label: "合否",
+      element: company?.result && (
         <Typography variant="h5" component="h5" css={styles.text}>
           {company.result}
         </Typography>
@@ -41,9 +63,13 @@ const CompanyDitail = (props: CompanyDitailProps) => {
 
   return (
     <>
-      <ListTitle title={company.name} />
+      <ListTitle title={company?.name ?? ""} />
       {items.map((item) => (
-        <CompanyDitailItem label={item.label} element={item.element} />
+        <CompanyDitailItem
+          label={item.label}
+          element={item.element}
+          key={`${item.label}`}
+        />
       ))}
     </>
   );
