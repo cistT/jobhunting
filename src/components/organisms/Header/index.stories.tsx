@@ -10,5 +10,3 @@ export default {
 } as ComponentMeta<typeof Header>;
 
 export const Original = () => <Header />;
-
-export const Visible = () => <Header visible />;
