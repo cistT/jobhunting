@@ -1,8 +1,8 @@
 export type CompanyType = {
   id: string;
   name: string;
-  companyUrl?: string;
-  adoptionUrl?: string;
+  homepageURL?: string;
+  adoptionURL?: string;
   explanatoryMeetingDate?: Date;
   interviewDate?: Date;
   internshipDate?: Date;

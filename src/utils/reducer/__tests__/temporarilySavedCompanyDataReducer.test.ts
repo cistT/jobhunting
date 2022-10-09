@@ -34,8 +34,8 @@ describe("フォームに入力された企業情報を保存する関数", () =
   });
 
   test("企業のURLを登録する処理", () => {
-    const companyUrl = "http://localhost:8080";
-    const adoptionUrl = "http://localhost:80";
+    const homepageURL = "http://localhost:8080";
+    const adoptionURL = "http://localhost:80";
     const preState = temporarilySavedCompanyDataReducer(
       temporarilySavedCompanyDataReducer(testData, { type: "init" }),
       { type: "registerName", input: { name: "山下商事" } },
@@ -43,22 +43,22 @@ describe("フォームに入力された企業情報を保存する関数", () =
     const state = temporarilySavedCompanyDataReducer(preState, {
       type: "registerURL",
       input: {
-        companyUrl,
-        adoptionUrl,
+        homepageURL,
+        adoptionURL,
       },
     });
     expect(state).toEqual({
       id: "123",
       name: "山下商事",
       result: "未定",
-      companyUrl: "http://localhost:8080",
-      adoptionUrl: "http://localhost:80",
+      homepageURL: "http://localhost:8080",
+      adoptionURL: "http://localhost:80",
     });
     const noneURLState = temporarilySavedCompanyDataReducer(preState, {
       type: "registerURL",
       input: {
-        companyUrl: undefined,
-        adoptionUrl: undefined,
+        homepageURL: undefined,
+        adoptionURL: undefined,
       },
     });
     expect(noneURLState).toEqual({

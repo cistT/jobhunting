@@ -26,12 +26,12 @@ const CompanyURLForm: React.FC<CompanyURLFormProps> = (props) => {
       <LabelField
         label="ホームページURL"
         css={styles.field}
-        register={register("companyUrl")}
+        register={register("homepageURL")}
       />
       <LabelField
         label="採用ページURL"
         css={styles.field}
-        register={register("adoptionUrl")}
+        register={register("adoptionURL")}
       />
 
       <TwoLinedButton
@@ -39,8 +39,8 @@ const CompanyURLForm: React.FC<CompanyURLFormProps> = (props) => {
         leftLabel="戻る"
         rightClick={() =>
           rightClick({
-            companyUrl: watch("companyUrl"),
-            adoptionUrl: watch("adoptionUrl"),
+            homepageURL: watch("homepageURL"),
+            adoptionURL: watch("adoptionURL"),
           })
         }
         leftClick={leftClick}

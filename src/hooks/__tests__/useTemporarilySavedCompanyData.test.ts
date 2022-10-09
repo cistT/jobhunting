@@ -44,7 +44,7 @@ describe("企業情報登録画面でフォームに入力したデータを一�
     act(() => {
       result.current.dispatchTemporarilySavedCompanyData({
         type: "registerURL",
-        input: { companyUrl: undefined, adoptionUrl: undefined },
+        input: { homepageURL: undefined, adoptionURL: undefined },
       });
     });
     expect(result.current.temporarilySavedCompanyData).toEqual({
@@ -56,8 +56,8 @@ describe("企業情報登録画面でフォームに入力したデータを一�
       result.current.dispatchTemporarilySavedCompanyData({
         type: "registerURL",
         input: {
-          companyUrl: "http://localhost:8080",
-          adoptionUrl: "http://localhost:80",
+          homepageURL: "http://localhost:8080",
+          adoptionURL: "http://localhost:80",
         },
       });
     });
@@ -65,8 +65,8 @@ describe("企業情報登録画面でフォームに入力したデータを一�
       id: "123",
       name: "山下商事",
       result: "未定",
-      companyUrl: "http://localhost:8080",
-      adoptionUrl: "http://localhost:80",
+      homepageURL: "http://localhost:8080",
+      adoptionURL: "http://localhost:80",
     });
   });
   test("イベント日時の登録処理", () => {

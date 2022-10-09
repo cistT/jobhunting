@@ -14,12 +14,12 @@ const Index = () => {
 
   const router = useRouter();
   const rightClick: RightClick = (input) => {
-    if (input?.companyUrl || input?.adoptionUrl) {
+    if (input?.homepageURL || input?.adoptionURL) {
       dispatchTemporarilySavedCompanyData({
         type: "registerURL",
         input: {
-          companyUrl: input?.companyUrl ?? "",
-          adoptionUrl: input?.adoptionUrl ?? "",
+          homepageURL: input?.homepageURL ?? "",
+          adoptionURL: input?.adoptionURL ?? "",
         },
       });
     }

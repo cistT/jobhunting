@@ -87,8 +87,8 @@ describe("登録された企業情報を取得し、取得したデータと更�
     const maximumNewCompanyData: CompanyType = {
       id: "9999",
       name: "佐藤商事",
-      companyUrl: "http://localhost:8080",
-      adoptionUrl: "http://localhost:80",
+      homepageURL: "http://localhost:8080",
+      adoptionURL: "http://localhost:80",
       interviewDate: new Date("2022/5/10"),
       internshipDate: new Date("2022/5/10"),
       result: "合格",

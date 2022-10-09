@@ -39,7 +39,7 @@ const CompanyDitail = (props: CompanyDitailProps) => {
       label: "ホームページURL",
       element: (
         <Typography variant="h5" component="h5" css={styles.text}>
-          {company?.companyUrl ?? ""}
+          {company?.homepageURL ?? ""}
         </Typography>
       ),
     },
@@ -47,7 +47,7 @@ const CompanyDitail = (props: CompanyDitailProps) => {
       label: "採用ページURL",
       element: (
         <Typography variant="h5" component="h5" css={styles.text}>
-          {company?.adoptionUrl ?? ""}
+          {company?.adoptionURL ?? ""}
         </Typography>
       ),
     },

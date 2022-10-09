@@ -10,8 +10,8 @@ export type Action =
   | {
       type: "registerURL";
       input: {
-        companyUrl?: string;
-        adoptionUrl?: string;
+        homepageURL?: string;
+        adoptionURL?: string;
       };
     }
   | {
@@ -53,8 +53,8 @@ const temporarilySavedCompanyDataReducer: TemporarilySavedCompanyDataReducer = (
     case "registerURL":
       return {
         ...state,
-        companyUrl: action.input.companyUrl,
-        adoptionUrl: action.input.adoptionUrl,
+        homepageURL: action.input.homepageURL,
+        adoptionURL: action.input.adoptionURL,
       };
     case "registerEventDate":
       return {
