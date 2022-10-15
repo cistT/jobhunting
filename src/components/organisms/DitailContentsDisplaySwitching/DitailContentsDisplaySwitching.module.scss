@@ -1,0 +1,9 @@
+.button-group {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  margin: 10px 5px;
+  .button {
+    width: 100%;
+  }
+}
