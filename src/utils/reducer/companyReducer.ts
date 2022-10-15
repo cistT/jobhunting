@@ -14,6 +14,11 @@ export type Action =
   | {
       type: "delete";
       companyId: string;
+    }
+  | {
+      type: "update";
+      companyID: string;
+      company: CompanyType;
     };
 
 /**
@@ -32,6 +37,16 @@ const companyReducer = (state: State, action: Action) => {
       return [...state, action.newCompanyData];
     case "delete":
       return state.filter((data) => data.id !== action.companyId);
+    case "update":
+      return [
+        ...state.map((data) => {
+          if (data.id === action.companyID) {
+            return action.company;
+          }
+
+          return data;
+        }),
+      ];
     default:
       return state;
   }
