@@ -16,7 +16,11 @@ type SSRProps = {
 const Home: NextPage<SSRProps> = (props) => {
   const { companyData } = props;
   const router = useRouter();
-  const { registeredCompanyData } = React.useContext(Companies);
+  const { dispatchRegisteredCompanyData } = React.useContext(Companies);
+  dispatchRegisteredCompanyData({
+    type: "init",
+    fetchCompanyData: companyData,
+  });
 
   return (
     <>
@@ -24,7 +28,7 @@ const Home: NextPage<SSRProps> = (props) => {
         <title>就活管理アプリ</title>
       </Head>
       <HomeContents
-        companies={[...companyData, ...registeredCompanyData].map((data) => ({
+        companies={companyData.map((data) => ({
           ...data,
           onClick: () => router.push(`/list/${data.id}`),
         }))}
