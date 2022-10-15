@@ -1,15 +1,17 @@
-import CompanyDitail from "components/organisms/CompanyDitail";
-import { useRouter } from "next/router";
-import { Companies } from "pages/_app";
 import React from "react";
 
+import { Companies } from "pages/_app";
+
+import useGetURLQuery from "hooks/useGetURLQuery";
+
+import CompanyDitail from "components/organisms/CompanyDitail";
+
 const Index = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useGetURLQuery("id");
   const { registeredCompanyData } = React.useContext(Companies);
   const company = registeredCompanyData.filter((data) => data.id === id)[0];
 
-  return <CompanyDitail company={company} />;
+  return <CompanyDitail company={company} editHref={`/list/${id}/edit`} />;
 };
 
 export default Index;
