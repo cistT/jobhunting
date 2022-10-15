@@ -1,0 +1,28 @@
+.container {
+  margin: 10px 15px;
+  .close-button {
+    height: 30px;
+    width: 30px;
+    margin-left: 85%;
+    .icon {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .field {
+    margin: 20px 0;
+  }
+  .header {
+    font-size: 20px;
+  }
+  .button-group {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    margin: 30px 0;
+    .button {
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+}
