@@ -66,7 +66,7 @@ const Calendar: React.FC<CalendarProps> = (props) => {
           minDate={defaultValue || new Date()} // 選択範囲は2021年～
           value={value}
           onChange={handleChange}
-          inputFormat="yyyy/MM/dd" // 選択済みの日付の表示
+          inputFormat="yyyy-MM-dd" // 選択済みの日付の表示
           mask="____年__月__日"
           toolbarFormat="yyyy年MM月dd日" // スマホ画面の左上 選択中日付表示sx={{ m: 2, width: 1000 }}
           renderInput={(params) => (
