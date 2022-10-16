@@ -1,0 +1,26 @@
+.container {
+  > .header {
+    font-size: 20px;
+  }
+
+  > .radio-form {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px;
+  }
+
+  > .radio-form > .radio-group {
+    margin: 0 20px;
+    :hover {
+      cursor: pointer;
+    }
+    .radio-label {
+      font-size: 24px;
+    }
+    .radio-button {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

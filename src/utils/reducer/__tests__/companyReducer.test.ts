@@ -58,6 +58,7 @@ describe("登録された会社情報を加工する処理", () => {
       adoptionURL: "http://localhost:80",
       interviewDate: new Date("2022/5/10"),
       internshipDate: new Date("2022/5/10"),
+      motivation: "合格します",
       result: "合格",
     };
     expect(
@@ -84,5 +85,32 @@ describe("登録された会社情報を加工する処理", () => {
         companyId: noneCompanyId,
       }),
     ).toEqual(testData);
+  });
+
+  test("更新処理", () => {
+    const updatedCompany: CompanyType = {
+      id: "1",
+      name: "佐藤商事",
+      homepageURL: "updated_Data",
+      adoptionURL: "updated_Data",
+      interviewDate: new Date("2100/12/31"),
+      internshipDate: new Date("2100/1/1"),
+      result: "不合格",
+    };
+    expect(
+      companyReducer(testData, {
+        type: "update",
+        companyID: updatedCompany.id,
+        company: updatedCompany,
+      }),
+    ).toEqual(
+      testData.map((company) => {
+        if (company.id === updatedCompany.id) {
+          return updatedCompany;
+        }
+
+        return company;
+      }),
+    );
   });
 });

@@ -110,6 +110,8 @@
     "react/jsx-props-no-spreading": ["off"],
     "react/require-default-props": ["off"],
     "react/prop-types": "off",
-    "@typescript-eslint/parser": ["off"]
+    "@typescript-eslint/parser": ["off"],
+    "dot-notation": ["off"],
+    "@typescript-eslint/dot-notation": ["off"]
   }
 }

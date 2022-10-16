@@ -1,22 +1,43 @@
 import React from "react";
 
-import { css } from "@emotion/react";
-
-import { Typography } from "@mui/material";
+import Link from "next/link";
 
 import { CompanyType } from "types";
-import DateBox from "components/atoms/Box/DateBox";
 
-import ListTitle from "components/molecules/ListTitle";
+import { Button, Typography } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+
+import DateBox from "components/atoms/Box/DateBox";
 import CompanyDitailItem from "components/molecules/CompanyDitailItem";
+import DitailLayout from "components/templetes/DitailLayout/DitailLayout";
+
+import styles from "./CompanyDitail.module.scss";
 
 export type CompanyDitailProps = {
   company: CompanyType;
+  editHref: string;
 };
 
 const CompanyDitail = (props: CompanyDitailProps) => {
-  const { company } = props;
+  const { company, editHref } = props;
+
   const items: { label: string; element: JSX.Element | undefined }[] = [
+    {
+      label: "ホームページURL",
+      element: (
+        <Typography variant="h5" component="h5" className={styles["text"]}>
+          {company?.homepageURL ?? ""}
+        </Typography>
+      ),
+    },
+    {
+      label: "採用ページURL",
+      element: (
+        <Typography variant="h5" component="h5" className={styles["text"]}>
+          {company?.adoptionURL ?? ""}
+        </Typography>
+      ),
+    },
     {
       label: "説明会日",
       element: company?.explanatoryMeetingDate && (
@@ -36,25 +57,9 @@ const CompanyDitail = (props: CompanyDitailProps) => {
       ),
     },
     {
-      label: "ホームページURL",
-      element: (
-        <Typography variant="h5" component="h5" css={styles.text}>
-          {company?.homepageURL ?? ""}
-        </Typography>
-      ),
-    },
-    {
-      label: "採用ページURL",
-      element: (
-        <Typography variant="h5" component="h5" css={styles.text}>
-          {company?.adoptionURL ?? ""}
-        </Typography>
-      ),
-    },
-    {
       label: "合否",
       element: company?.result && (
-        <Typography variant="h5" component="h5" css={styles.text}>
+        <Typography variant="h5" component="h5" className={styles["text"]}>
           {company.result}
         </Typography>
       ),
@@ -62,23 +67,24 @@ const CompanyDitail = (props: CompanyDitailProps) => {
   ];
 
   return (
-    <>
-      <ListTitle title={company?.name ?? ""} />
-      {items.map((item) => (
-        <CompanyDitailItem
-          label={item.label}
-          element={item.element}
-          key={`${item.label}`}
-        />
-      ))}
-    </>
+    <DitailLayout companyName={company?.name ?? ""}>
+      <>
+        <Link href={editHref}>
+          <Button className={styles["edit-button"]}>
+            <EditIcon className={styles["icon"]} />
+          </Button>
+        </Link>
+
+        {items.map((item) => (
+          <CompanyDitailItem
+            label={item.label}
+            element={item.element}
+            key={`${item.label}`}
+          />
+        ))}
+      </>
+    </DitailLayout>
   );
 };
 
 export default CompanyDitail;
-
-const styles = {
-  text: css`
-    text-align: center;
-  `,
-};

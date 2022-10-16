@@ -138,4 +138,38 @@ describe("登録された企業情報を取得し、取得したデータと更�
       ),
     );
   });
+  test("更新処理", () => {
+    const updatedCompany: CompanyType = {
+      id: "1",
+      name: "佐藤商事",
+      homepageURL: "updated_Data",
+      adoptionURL: "updated_Data",
+      interviewDate: new Date("2100/12/31"),
+      internshipDate: new Date("2100/1/1"),
+      result: "不合格",
+    };
+    const { result } = renderHook(() => useFetchRegisteredCompanyData());
+    act(() => {
+      result.current.dispatchRegisteredCompanyData({
+        type: "init",
+        fetchCompanyData: testData,
+      });
+    });
+    act(() => {
+      result.current.dispatchRegisteredCompanyData({
+        type: "update",
+        companyID: updatedCompany.id,
+        company: updatedCompany,
+      });
+    });
+    expect(result.current.registeredCompanyData).toEqual(
+      testData.map((company) => {
+        if (company.id === updatedCompany.id) {
+          return updatedCompany;
+        }
+
+        return company;
+      }),
+    );
+  });
 });

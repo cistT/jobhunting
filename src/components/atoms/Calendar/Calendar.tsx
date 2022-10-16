@@ -12,13 +12,14 @@ import ja from "date-fns/locale/ja";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 export type CalendarProps = {
+  defaultValue?: Date;
   register: UseFormRegisterReturn;
 };
 
 // 参考 https://itc-engineering-blog.netlify.app/blogs/x-date-pickers
 const Calendar: React.FC<CalendarProps> = (props) => {
-  const { register } = props;
-  const [value, setValue] = React.useState<Date | null>(null);
+  const { register, defaultValue } = props;
+  const [value, setValue] = React.useState<Date | null>(defaultValue || null);
   const handleChange = (newValue: Date | null) => {
     setValue(newValue);
   };
@@ -62,7 +63,7 @@ const Calendar: React.FC<CalendarProps> = (props) => {
       <Box sx={{ width: "100%" }}>
         <DatePicker
           label="日付の入力"
-          minDate={new Date()} // 選択範囲は2021年～
+          minDate={defaultValue || new Date()} // 選択範囲は2021年～
           value={value}
           onChange={handleChange}
           inputFormat="yyyy/MM/dd" // 選択済みの日付の表示
