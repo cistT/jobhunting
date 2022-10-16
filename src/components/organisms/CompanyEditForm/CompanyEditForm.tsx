@@ -8,6 +8,7 @@ import { CompanyType } from "types";
 import { Action } from "utils/reducer/companyReducer";
 
 import useBrowserBack from "hooks/useBrowserBack";
+import usePostCompany from "hooks/usePostCompany";
 
 import { Button, ButtonGroup } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -26,7 +27,10 @@ export type CompanyEditFormProps = {
 
 const CompanyEditForm = (props: CompanyEditFormProps) => {
   const { company, closeButtonHref, dispatchRegisteredCompanyData } = props;
+
   const { register, handleSubmit } = useForm<CompanyType>();
+
+  const { postCompany } = usePostCompany();
 
   const { browserBack } = useBrowserBack();
 
@@ -88,6 +92,7 @@ const CompanyEditForm = (props: CompanyEditFormProps) => {
       companyID: company.id,
       company: { ...company, ...data },
     });
+    postCompany({ ...company, ...data });
   };
 
   return (
