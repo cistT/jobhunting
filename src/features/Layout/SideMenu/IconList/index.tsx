@@ -2,7 +2,7 @@ import React from "react";
 
 import IconListItem, {
   IconListItemProps,
-} from "components/atoms/ListItem/IconListItem";
+} from "features/Layout/SideMenu/IconList/IconListItem";
 
 export type IconListProps = {
   items: IconListItemProps[];

@@ -10,7 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { Divider } from "@mui/material";
 
-import IconList from "components/molecules/IconList";
+import IconList from "features/Layout/SideMenu/IconList";
 
 const SideMenu = () => {
   const router = useRouter();

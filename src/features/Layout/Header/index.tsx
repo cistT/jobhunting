@@ -6,8 +6,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-import LoginButton from "components/atoms/Button/LoginButton";
-import LogoutButton from "components/atoms/Button/LogoutButton";
+import LoginButton from "features/Layout/Header/Button/LoginButton";
+import LogoutButton from "features/Layout/Header/Button/LogoutButton";
 
 const Header = () => {
   const [isLogin, setIsLogin] = React.useState(false);

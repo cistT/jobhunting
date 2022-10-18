@@ -8,7 +8,7 @@ import { Button, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 
 import DateBox from "components/atoms/Box/DateBox";
-import CompanyDitailItem from "components/molecules/CompanyDitailItem";
+import CompanyDitailItem from "features/CompanyDitail/CompanyDitailItem";
 import DitailLayout from "components/templetes/DitailLayout/DitailLayout";
 
 import styles from "./CompanyDitail.module.scss";

@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { ComponentMeta } from "@storybook/react";
 
 import HomeButton from ".";
-import { IconButtonProps } from "../type";
+import { IconButtonProps } from "../../../../../components/atoms/Button/type";
 
 export default {
   title: "Button/HomeButton",

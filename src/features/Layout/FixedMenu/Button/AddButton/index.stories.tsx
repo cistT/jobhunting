@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { ComponentMeta } from "@storybook/react";
 
 import AddButton from ".";
-import { ButtonProps } from "../type";
+import { ButtonProps } from "../../../../../components/atoms/Button/type";
 
 export default {
   title: "Button/AddButton",
