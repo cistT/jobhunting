@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 
 import { css } from "@emotion/react";
 
-import AddButton from "components/atoms/Button/AddButton";
-import CalenderButton from "components/atoms/Button/CalenderButton";
-import HomeButton from "components/atoms/Button/HomeButton";
-import ListButton from "components/atoms/Button/ListButton";
+import AddButton from "features/Layout/FixedMenu/Button/AddButton";
+import CalenderButton from "features/Layout/FixedMenu/Button/CalenderButton";
+import HomeButton from "features/Layout/FixedMenu/Button/HomeButton";
+import ListButton from "features/Layout/FixedMenu/Button/ListButton";
 
 export type Focus = "Home" | "List" | "Add" | "Calender";
 

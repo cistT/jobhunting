@@ -2,9 +2,9 @@ import React from "react";
 
 import { css } from "@emotion/react";
 
-import Header from "components/organisms/Header";
-import SideMenu from "components/organisms/SideMenu";
-import FixedMenu, { Focus } from "components/organisms/FixedMenu";
+import Header from "features/Layout/Header";
+import SideMenu from "features/Layout/SideMenu";
+import FixedMenu, { Focus } from "features/Layout/FixedMenu";
 
 import useWindowSize from "hooks/useWindowSize";
 

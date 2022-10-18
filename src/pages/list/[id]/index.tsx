@@ -4,7 +4,7 @@ import { Companies } from "pages/_app";
 
 import useGetURLQuery from "hooks/useGetURLQuery";
 
-import CompanyDitail from "components/organisms/CompanyDitail";
+import CompanyDitail from "features/CompanyDitail";
 
 const Index = () => {
   const { id } = useGetURLQuery("id");

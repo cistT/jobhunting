@@ -2,7 +2,7 @@ import React from "react";
 import type { AppProps } from "next/app";
 
 import "modern-css-reset/dist/reset.min.css";
-import Layout from "components/templetes/Layout";
+import Layout from "features/Layout";
 
 import useFetchRegisteredCompanyData, {
   CompanyDataWithUpDate,

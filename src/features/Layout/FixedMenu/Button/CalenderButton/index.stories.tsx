@@ -3,7 +3,7 @@ import React from "react";
 import { ComponentMeta } from "@storybook/react";
 
 import CalenderButton from ".";
-import { ButtonProps } from "../type";
+import { ButtonProps } from "../../../../../components/atoms/Button/type";
 
 export default {
   title: "Button/CalenderButton",

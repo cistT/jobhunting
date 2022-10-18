@@ -5,7 +5,7 @@ import { Companies } from "pages/_app";
 import useGetURLQuery from "hooks/useGetURLQuery";
 
 import DitailLayout from "components/templetes/DitailLayout/DitailLayout";
-import CompanyEditForm from "components/organisms/CompanyEditForm/CompanyEditForm";
+import CompanyEditForm from "features/UpdateCompany/CompanyEditForm";
 
 const Edit = () => {
   const { id } = useGetURLQuery("id");
