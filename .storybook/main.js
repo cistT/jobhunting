@@ -8,12 +8,12 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true,
-      },
-    },
+    // {
+    //   name: "@storybook/addon-docs",
+    //   options: {
+    //     configureJSX: true,
+    //   },
+    // },
   ],
   framework: "@storybook/react",
   core: {
@@ -24,6 +24,10 @@ module.exports = {
   },
   typescript: { reactDocgen: false },
   webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
+    });
     config.resolve.plugins = [
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, "../src"),
