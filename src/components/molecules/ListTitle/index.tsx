@@ -1,8 +1,10 @@
 import React from "react";
 
-import { css } from "@emotion/react";
+import classNames from "classnames";
 
 import { Typography, Divider } from "@mui/material";
+
+import styles from "./index.module.scss";
 
 export type ListTitleProps = {
   title: string;
@@ -13,12 +15,12 @@ const ListTitle = (props: ListTitleProps) => {
   const { title, className = "" } = props;
 
   return (
-    <div css={styles.container}>
+    <div className={styles["container"]}>
       <Typography
-        variant="h1"
-        component="h1"
+        variant="h2"
+        component="h2"
         css={styles.title}
-        className={className}>
+        className={classNames(styles["title"], className)}>
         {title}
       </Typography>
       <Divider />
@@ -27,13 +29,3 @@ const ListTitle = (props: ListTitleProps) => {
 };
 
 export default ListTitle;
-
-const styles = {
-  container: css`
-    text-align: center;
-  `,
-  title: css`
-    font-size: 32px;
-    margin-bottom: 10px;
-  `,
-};
