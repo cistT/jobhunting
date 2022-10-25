@@ -1,0 +1,11 @@
+@use "styles/variables.scss";
+.container {
+  > .text-container {
+    flex-flow: column;
+    gap: 10px;
+  }
+
+  > .text-container > .text {
+    font-size: variables.$font-size-list-item;
+  }
+}
