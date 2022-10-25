@@ -1,0 +1,10 @@
+@use "styles/variables.scss";
+.container {
+  > .text-container {
+    justify-content: space-between;
+  }
+
+  > .text-container > .text {
+    font-size: variables.$font-size-list-item;
+  }
+}
