@@ -2,13 +2,13 @@ import React from "react";
 
 import { ComponentMeta } from "@storybook/react";
 
-import homepageURLForm, { homepageURLFormProps } from "./homepageURLForm";
+import CompanyURLForm, { CompanyURLFormProps } from "./CompanyURLForm";
 
 export default {
-  title: "organisms/AddContents/homepageURLForm",
-  component: homepageURLForm,
-} as ComponentMeta<typeof homepageURLForm>;
+  title: "organisms/AddContents/CompanyURLForm",
+  component: CompanyURLForm,
+} as ComponentMeta<typeof CompanyURLForm>;
 
-export const Original = (props: homepageURLFormProps) => (
-  <homepageURLForm {...props} />
+export const Original = (props: CompanyURLFormProps) => (
+  <CompanyURLForm {...props} />
 );
