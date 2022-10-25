@@ -4,8 +4,12 @@ import type { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import HomeContents from "components/organisms/HomeContents";
 import { CompanyType } from "types";
+
+import slashDateToString from "utils/date/slashDateToString";
+
+import ListTitle from "components/molecules/ListTitle";
+import ListItemBothEndsTextButton from "components/ListItem/ListItemBothEndsTextButton";
 
 import { Companies } from "./_app";
 
@@ -16,6 +20,7 @@ type SSRProps = {
 const Home: NextPage<SSRProps> = (props) => {
   const { companyData } = props;
   const router = useRouter();
+
   const { dispatchRegisteredCompanyData } = React.useContext(Companies);
   dispatchRegisteredCompanyData({
     type: "init",
@@ -27,12 +32,20 @@ const Home: NextPage<SSRProps> = (props) => {
       <Head>
         <title>就活管理アプリ</title>
       </Head>
-      <HomeContents
-        companies={companyData.map((data) => ({
-          ...data,
-          onClick: () => router.push(`/list/${data.id}`),
-        }))}
-      />
+
+      <ListTitle title="直近の予定" />
+
+      {companyData.map((data) => (
+        <ListItemBothEndsTextButton
+          label={data.name}
+          explanation={
+            data?.interviewDate ? slashDateToString(data.interviewDate) : "未定"
+          }
+          onClick={() => router.push(`/list/${data.id}`)}
+          underline
+          key={data.id}
+        />
+      ))}
     </>
   );
 };

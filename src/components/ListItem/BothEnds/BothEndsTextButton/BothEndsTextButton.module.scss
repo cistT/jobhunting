@@ -1,0 +1,7 @@
+@use "styles/variables.scss";
+.container {
+  :hover {
+    background-color: variables.$hover-color;
+    cursor: pointer;
+  }
+}
