@@ -11,21 +11,16 @@ import slashDateToString from "utils/date/slashDateToString";
 import ListTitle from "components/molecules/ListTitle";
 import ListItemBothEndsTextButton from "components/ListItem/ListItemBothEndsTextButton";
 
-import { Companies } from "./_app";
+import fetchCompanyList from "features/api/fetchCompanyList";
 
 type SSRProps = {
-  companyData: CompanyType[];
+  companies: CompanyType[];
 };
 
-const Home: NextPage<SSRProps> = (props) => {
-  const { companyData } = props;
-  const router = useRouter();
+const Home: NextPage<SSRProps> = (props: SSRProps) => {
+  const { companies } = props;
 
-  const { dispatchRegisteredCompanyData } = React.useContext(Companies);
-  dispatchRegisteredCompanyData({
-    type: "init",
-    fetchCompanyData: companyData,
-  });
+  const router = useRouter();
 
   return (
     <>
@@ -35,7 +30,7 @@ const Home: NextPage<SSRProps> = (props) => {
 
       <ListTitle title="直近の予定" />
 
-      {companyData.map((data) => (
+      {companies.map((data) => (
         <ListItemBothEndsTextButton
           label={data.name}
           explanation={
@@ -53,12 +48,9 @@ const Home: NextPage<SSRProps> = (props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps<SSRProps> = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_COMPANY_API_URL}/company/userID=1`,
-  );
-  const companyData = await res.json();
+  const companies = await fetchCompanyList();
 
   return {
-    props: { companyData: companyData.companyData },
+    props: { companies },
   };
 };
