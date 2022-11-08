@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 import { CompanyType } from "types";
-import { Action } from "utils/reducer/companyReducer";
 
 import useBrowserBack from "hooks/useBrowserBack";
 import usePostCompany from "hooks/usePostCompany";
@@ -22,11 +21,10 @@ import styles from "./CompanyEditForm.module.scss";
 export type CompanyEditFormProps = {
   company: CompanyType;
   closeButtonHref: string;
-  dispatchRegisteredCompanyData: React.Dispatch<Action>;
 };
 
 const CompanyEditForm = (props: CompanyEditFormProps) => {
-  const { company, closeButtonHref, dispatchRegisteredCompanyData } = props;
+  const { company, closeButtonHref } = props;
 
   const { register, handleSubmit } = useForm<CompanyType>();
 
@@ -87,11 +85,6 @@ const CompanyEditForm = (props: CompanyEditFormProps) => {
   ];
 
   const onSubmit = (data: CompanyType) => {
-    dispatchRegisteredCompanyData({
-      type: "update",
-      companyID: company.id,
-      company: { ...company, ...data },
-    });
     postCompany({ ...company, ...data });
   };
 
