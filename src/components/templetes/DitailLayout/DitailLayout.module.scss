@@ -1,0 +1,14 @@
+.container {
+  > .upper {
+    display: flex;
+    gap: 20px;
+    margin: 0 10px 20px 10px;
+  }
+  > .upper > .title {
+    flex-grow: 9;
+  }
+
+  > .upper > .button {
+    flex-grow: 1;
+  }
+}

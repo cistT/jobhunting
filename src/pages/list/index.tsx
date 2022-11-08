@@ -3,14 +3,19 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { Companies } from "pages/_app";
-
 import ListTitle from "components/molecules/ListTitle";
 
 import ListItemBothEndsTextButton from "components/ListItem/ListItemBothEndsTextButton";
+import { GetServerSideProps } from "next";
+import { CompanyType } from "types";
+import fetchCompanyList from "features/api/fetchCompanyList";
 
-const Index = () => {
-  const { registeredCompanyData } = React.useContext(Companies);
+type SSRProps = {
+  companies: CompanyType[];
+};
+
+const Index = (props: SSRProps) => {
+  const { companies } = props;
   const router = useRouter();
 
   return (
@@ -20,7 +25,7 @@ const Index = () => {
       </Head>
       <ListTitle title="企業一覧" />
 
-      {registeredCompanyData.map((data) => (
+      {companies.map((data) => (
         <ListItemBothEndsTextButton
           label={data.name}
           explanation={data.result}
@@ -39,3 +44,11 @@ const Index = () => {
 };
 
 export default Index;
+
+export const getServerSideProps: GetServerSideProps<SSRProps> = async () => {
+  const companies = await fetchCompanyList();
+
+  return {
+    props: { companies },
+  };
+};

@@ -2,11 +2,8 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 
-import { Companies } from "pages/_app";
-
 import { CompanyType } from "types";
 
-import useGetURLQuery from "hooks/useGetURLQuery";
 import usePostCompany from "hooks/usePostCompany";
 
 import { TextField } from "@material-ui/core";
@@ -14,24 +11,22 @@ import { Button } from "@mui/material";
 
 import DitailLayout from "components/templetes/DitailLayout/DitailLayout";
 
+import { GetServerSideProps } from "next";
+import fetchCompanyDetail from "features/api/fetchCompanyDetail";
 import styles from "./motivation.module.scss";
 
-const Motivation = () => {
-  const { register, handleSubmit } = useForm<CompanyType>();
+type SSRProps = {
+  company: CompanyType;
+};
 
-  const { id } = useGetURLQuery("id");
-  const { registeredCompanyData, dispatchRegisteredCompanyData } =
-    React.useContext(Companies);
-  const company = registeredCompanyData.filter((data) => data.id === id)[0];
+const Motivation = (props: SSRProps) => {
+  const { company } = props;
+
+  const { register, handleSubmit } = useForm<CompanyType>();
 
   const { postCompany } = usePostCompany();
 
   const onSubmit = (data: CompanyType) => {
-    dispatchRegisteredCompanyData({
-      type: "update",
-      companyID: company.id,
-      company: { ...company, motivation: data.motivation },
-    });
     postCompany({ ...company, motivation: data.motivation });
   };
 
@@ -57,3 +52,14 @@ const Motivation = () => {
 };
 
 export default Motivation;
+
+export const getServerSideProps: GetServerSideProps<SSRProps> = async (
+  context,
+) => {
+  const id = (context?.params?.id as string) ?? "";
+  const company = await fetchCompanyDetail(id);
+
+  return {
+    props: { company },
+  };
+};
